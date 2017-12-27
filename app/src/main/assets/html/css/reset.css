@@ -1,0 +1,117 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 12px;
+    color: #ffffff;
+    font-family: "Microsoft Yahei"!important;
+}
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,menu,nav,output,ruby,section,summary,time,mark,audio,video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+html {
+    -webkit-text-size-adjust: 100%;
+    line-height: 1;
+    font-size: 62.5%;
+    display: -webkit-flex;
+    display: flex;
+    width: 100%;
+    min-height: 100%;
+}
+body {
+    font-family: PingFang SC,'Helvetica Neue', Helvetica, STHeiTi, sans-serif;
+    font-size: 1.4rem;
+}
+
+ol,ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+address,caption,cite,code,dfn,em,th,var {
+    font-style: normal;
+    font-weight: 500;
+}
+a{
+    text-decoration: none;
+}
+ins{
+    text-decoration: underline;
+    color: #171717;
+}
+fieldset, img {
+    border: 0;
+}
+input[type=checkbox],input[type=text],input[type=submit],input[type=password],textarea,button,a,img{
+    /*-webkit-appearance: none;*/
+}
+
+.clearfix:after{
+    display: table;
+    clear: both;
+    content: "";
+}
+.fl{
+    float: left;
+    display: inline;
+}
+.fr{
+    float: right;
+    display: inline;
+}
+.in-block{
+    display: inline-block;
+}
+.table-box{
+    display: table;
+    width: 100%;
+}
+.table-box-l{
+    display: table-cell;
+    text-align: left;
+
+}
+.table-box-r{
+    display: table-cell;
+    text-align: right;
+}
+body{
+    display: -webkit-flex;
+    display: flex;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    -webkit-user-select: none;
+    -webkit-flex: 1;
+    flex: 1;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-touch-callout: none;
+    -webkit-user-drag: none;
+}
+
+
+
+
+
+@media (max-width:1400px) {
+    html{
+        font-size: 40%;
+    }
+}
+@media (max-width:1281px) {
+    html{
+        font-size:50%;
+    }
+}

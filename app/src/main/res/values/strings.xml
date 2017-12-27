@@ -1,0 +1,9 @@
+<resources>
+
+
+    <string name="app_name">智慧监控(单)</string>
+    <string name="out_in_co">出入统计</string>
+    <string name="now_time_co">实时状态</string>
+    <string name="in">进入</string>
+    <string name="out">离开</string>
+</resources>

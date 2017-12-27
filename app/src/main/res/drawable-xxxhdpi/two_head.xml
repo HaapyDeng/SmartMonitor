@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layer-list xmlns:android="http://schemas.android.com/tools"
+    xmlns:Android="http://schemas.android.com/apk/res/android">
+    <item
+        Android:id="@+id/user_faceback_drawable"
+        android:drawable="@drawable/a010101" />
+    <item
+        Android:id="@+id/user_face_drawable"
+        android:bottom="35.0dip"
+        android:drawable="@drawable/qianjinceng"
+        android:left="10.0dip"
+        android:right="25.0dip"
+        android:top="18.0dip" />
+</layer-list>

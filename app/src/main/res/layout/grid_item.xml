@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:visibility="invisible">
+
+
+    <RelativeLayout
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/img1"
+            android:layout_width="95dp"
+            android:layout_height="95dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/img_moshengrenbiaoji" />
+
+        <ImageView
+            android:id="@+id/rl"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/qianjinceng" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_text"
+        android:layout_width="116dp"
+        android:layout_height="95dp"
+        android:background="#365E67"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/name1"
+            android:layout_width="116dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:text="校外人员"
+            android:textColor="#FFFFFFFF"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/grade1"
+            android:layout_width="116dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="请勿擅自进入"
+            android:textColor="#FFFFFFFF"
+            android:textSize="16dp" />
+    </LinearLayout>
+
+</LinearLayout>

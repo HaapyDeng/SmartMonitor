@@ -1,0 +1,126 @@
+body{
+    /*background: #202227;*/
+}
+.status-box{
+    width: 100%;
+    height: 240px;
+    background:#223B42;
+}
+.stand-by{
+    width: 7%;
+    height: 240px;
+    float: left;
+    text-align: center;
+    background: #365E67;
+    font-size: 14px;
+    line-height:240px;
+
+}
+.the-circle{
+    width: 67.78%;
+    height: 100%;
+    float: left;
+    border-right: 1px solid #3E7680;
+    overflow: hidden;
+}
+.the-floor{
+    width: 25.08%;
+    height: 100%;
+    float: left;
+}
+.the-floor ul{
+    width: 90%;
+    height: 180px;
+    margin: 10px auto ;
+}
+.the-floor ul li{
+    width: 15px;
+    height: 100%;
+    position: relative;
+    border:1px solid transparent;
+    margin: 0 2px;
+    float: left;
+}
+.the-floor ul li:hover h2{
+    display: block;
+}
+.the-floor ul li h2{
+    font-size: 16px;
+    color: #9EE6AB;
+    font-weight: 400;
+    position: absolute;
+    width: 60px;
+    line-height: 20px;
+    top: 0;
+    left: 50%;
+    margin-left: -30px;
+    text-align: center;
+    display: none;
+}
+.the-floor ul li p{
+    width: 10px;
+    height: 150px;
+    background: #1A1A1A;
+    margin-top: 30px;
+    position: relative;
+}
+.the-floor ul li.on p span{
+    background: linear-gradient(0deg, #DAFFB0 0% ,#30FED8 100%)!important;
+}
+.the-floor ul li p span{
+    width: 10px;
+    transition: 1000;
+    display: block;
+    background: #2A5358;
+    position: absolute;
+    bottom: 0;
+    left: 0; 
+}
+.the-floor h1{
+    text-align: center;
+    line-height: 30px;
+    font-size: 16px;
+}
+.circle-list{
+    width: 100%;
+    padding-left: 20px;
+}
+.circle-list-li{
+    width: 100%;
+    height: 240px;
+    overflow: auto;
+}
+.circle-list-li ul{
+    width: 100%;
+}
+.circle-list-li ul li{
+    width: 20%;
+    height: 100px;
+    float: left;
+    position: relative;
+    margin-top: 10px;
+    /*margin-left: 20px;*/
+}
+.circle-list-li ul li div{
+    width: 70px;
+    height: 70px;
+    margin: 10px auto;
+}
+.circle-list-li ul li h4{
+    text-align: center;
+    line-height: 70px;
+    font-size: 14px;
+    color: #CCF8AD;
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    margin-left: -35px;
+}
+.circle-list-li ul li p{
+    margin-top: -5px;
+    text-align: center;
+    font-size:12px;
+    /*line-height: 24px;*/
+}
