@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements NodePlayerDelegat
     String userGrade = "";
     String userClass = "";
     int flag = 0;
+    int dataflag1 = 0, dataflag2 = 0;
 
     //    String video1 = "rtsp://admin:Abcd1234@192.168.1.2:554";
 //    String video2 = "rtsp://admin:Abcd1234@192.168.1.3:554";
@@ -518,6 +519,8 @@ public class MainActivity extends AppCompatActivity implements NodePlayerDelegat
                     mHandler.sendEmptyMessageDelayed(12, 3000);
                     break;
                 case 11:
+                    Log.d("data1:", data1.toString());
+                    Log.d("data2:", data2.toString());
                     initBarChart1();
                     initBarChart2();
                     break;
@@ -703,6 +706,11 @@ public class MainActivity extends AppCompatActivity implements NodePlayerDelegat
      */
     private void initBarChart1() {
 
+        if (dataflag1 == 1) {
+            Log.d("view1","remove!!!");
+            customBarChart1.removeView(customBarChart1);
+        }
+
         String[] xLabel = {"0", "00:00", "", "", "", "", "", "07:00", "", "", "", "", "12:00", "",
                 "", "", "", "", "18:00", "", "", "", "22:00", "", ""};
         String[] yLabel = {"0", "0", "0", "0", "0", "0", "0", "0"};
@@ -714,12 +722,18 @@ public class MainActivity extends AppCompatActivity implements NodePlayerDelegat
         color.add(R.color.color16);
         color.add(R.color.color16);
         customBarChart1.addView(new CustomBarChart(this, xLabel, yLabel, data, color));
+        dataflag1 = 1;
     }
 
     /**
      * 初始化柱状图2数据
      */
     private void initBarChart2() {
+        if (dataflag2 == 1) {
+            Log.d("view2","remove!!!");
+            customBarChart2.removeView(customBarChart2);
+        }
+
         String[] xLabel = {"0", "00:00", "", "", "", "", "", "07:00", "", "", "", "", "12:00", "",
                 "", "", "", "", "18:00", "", "", "", "22:00", "", ""};
         String[] yLabel = {"0", "0", "0", "0", "0", "0", "0", "0"};
@@ -732,6 +746,7 @@ public class MainActivity extends AppCompatActivity implements NodePlayerDelegat
         color.add(R.color.color16);
         color.add(R.color.color16);
         customBarChart2.addView(new CustomBarChart(this, xLabel, yLabel, data, color));
+        dataflag2 = 1;
     }
 
     public String jsonMacData() {
