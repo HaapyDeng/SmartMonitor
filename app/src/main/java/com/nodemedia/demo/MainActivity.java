@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
@@ -343,7 +344,7 @@ public class MainActivity extends AppCompatActivity implements NodePlayerDelegat
             switch (msg.what) {
 
                 case 1:
-                    img1 = (ImageView) popView.findViewById(R.id.img_1);
+                    img_1 = (ImageView) popView.findViewById(R.id.img_1);
                     img_1.setVisibility(View.VISIBLE);
                     mHandler.sendEmptyMessageDelayed(2, 1500);
                     break;
@@ -366,9 +367,9 @@ public class MainActivity extends AppCompatActivity implements NodePlayerDelegat
                         TextView gradeText2 = (TextView) popView.findViewById(R.id.grade);
                         userName = "校外人员";
                         nameText2.setText(userName);
-                        nameText2.setTextColor(R.color.red);
+                        nameText2.setTextColor(Color.RED);
                         gradeText2.setText("请勿擅自进入");
-                        gradeText2.setTextColor(R.color.red);
+                        gradeText2.setTextColor(Color.RED);
                         mHandler.sendEmptyMessageDelayed(4, 3000);
 
                     } else {
@@ -407,14 +408,16 @@ public class MainActivity extends AppCompatActivity implements NodePlayerDelegat
                             if (userName.equals("校外人员")) {
                                 img1.setImageDrawable(getResources().getDrawable(R.drawable.img_moshengrenbiaoji));
                                 name1.setText(userName);
-                                name1.setTextColor(R.color.red);
                                 grade1.setText("请勿擅自进入");
-                                grade1.setTextColor(R.color.red);
+                                name1.setTextColor(Color.RED);
+                                grade1.setTextColor(Color.RED);
                             } else {
                                 String sdDir2 = Environment.getExternalStorageDirectory().getPath();
                                 img1.setImageURI(Uri.fromFile(new File(sdDir2 + "/school/" + studentId + ".jpg")));
                                 name1.setText(userName);
+                                name1.setTextColor(Color.WHITE);
                                 grade1.setText(userGrade + " · " + userClass);
+                                grade1.setTextColor(Color.WHITE);
 
                             }
                             break;
@@ -424,14 +427,16 @@ public class MainActivity extends AppCompatActivity implements NodePlayerDelegat
                             if (userName.equals("校外人员")) {
                                 img2.setImageDrawable(getResources().getDrawable(R.drawable.img_moshengrenbiaoji));
                                 name2.setText(userName);
-                                name2.setTextColor(R.color.red);
                                 grade2.setText("请勿擅自进入");
-                                grade2.setTextColor(R.color.red);
+                                name2.setTextColor(Color.RED);
+                                grade2.setTextColor(Color.RED);
                             } else {
                                 String sdDir2 = Environment.getExternalStorageDirectory().getPath();
                                 img2.setImageURI(Uri.fromFile(new File(sdDir2 + "/school/" + studentId + ".jpg")));
                                 name2.setText(userName);
+                                name2.setTextColor(Color.WHITE);
                                 grade2.setText(userGrade + " · " + userClass);
+                                grade2.setTextColor(Color.WHITE);
 
                             }
                             break;

@@ -160,7 +160,6 @@
                             android:id="@+id/ll_text"
                             android:layout_width="116dp"
                             android:layout_height="95dp"
-                            android:background="#365E67"
                             android:orientation="vertical">
 
                             <TextView
@@ -210,7 +209,9 @@
                                 android:id="@+id/rl2"
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
-                                android:layout_centerInParent="true"
+                                android:layout_alignEnd="@+id/img2"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignRight="@+id/img2"
                                 android:src="@drawable/qianjinceng" />
                         </RelativeLayout>
 
@@ -218,7 +219,6 @@
                             android:id="@+id/ll_text2"
                             android:layout_width="116dp"
                             android:layout_height="95dp"
-                            android:background="#365E67"
                             android:orientation="vertical">
 
                             <TextView
