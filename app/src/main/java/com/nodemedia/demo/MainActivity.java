@@ -281,7 +281,7 @@ public class MainActivity extends AppCompatActivity implements NodePlayerDelegat
                     Log.d("id", id.toString());
                     if (id.length() == 0) {
 //                        new InitIdTimeThread().start();
-//                        mHandler.sendEmptyMessageDelayed(12, 5000);
+                        mHandler.sendEmptyMessageDelayed(12, 3000);
                     } else {
                         SharedPreferences getSId = getSharedPreferences("studentId", 0);
                         String sid = getSId.getString("id", "0");
@@ -292,7 +292,7 @@ public class MainActivity extends AppCompatActivity implements NodePlayerDelegat
                                 //保存数据信息
                                 if (sid.equals(studentId)) {
 //                                    new InitIdTimeThread().start();
-//                                    mHandler.sendEmptyMessageDelayed(12, 5000);
+                                    mHandler.sendEmptyMessageDelayed(12, 3000);
                                 } else {
                                     tag = 1;
                                     SharedPreferences sId2 = getSharedPreferences("studentId", MODE_PRIVATE);
@@ -336,6 +336,7 @@ public class MainActivity extends AppCompatActivity implements NodePlayerDelegat
     @SuppressLint("HandlerLeak")
     Handler mHandler = new Handler() {
 
+        @SuppressLint("ResourceAsColor")
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -365,7 +366,9 @@ public class MainActivity extends AppCompatActivity implements NodePlayerDelegat
                         TextView gradeText2 = (TextView) popView.findViewById(R.id.grade);
                         userName = "校外人员";
                         nameText2.setText(userName);
+                        nameText2.setTextColor(R.color.red);
                         gradeText2.setText("请勿擅自进入");
+                        gradeText2.setTextColor(R.color.red);
                         mHandler.sendEmptyMessageDelayed(4, 3000);
 
                     } else {
@@ -404,7 +407,9 @@ public class MainActivity extends AppCompatActivity implements NodePlayerDelegat
                             if (userName.equals("校外人员")) {
                                 img1.setImageDrawable(getResources().getDrawable(R.drawable.img_moshengrenbiaoji));
                                 name1.setText(userName);
+                                name1.setTextColor(R.color.red);
                                 grade1.setText("请勿擅自进入");
+                                grade1.setTextColor(R.color.red);
                             } else {
                                 String sdDir2 = Environment.getExternalStorageDirectory().getPath();
                                 img1.setImageURI(Uri.fromFile(new File(sdDir2 + "/school/" + studentId + ".jpg")));
@@ -419,7 +424,9 @@ public class MainActivity extends AppCompatActivity implements NodePlayerDelegat
                             if (userName.equals("校外人员")) {
                                 img2.setImageDrawable(getResources().getDrawable(R.drawable.img_moshengrenbiaoji));
                                 name2.setText(userName);
+                                name2.setTextColor(R.color.red);
                                 grade2.setText("请勿擅自进入");
+                                grade2.setTextColor(R.color.red);
                             } else {
                                 String sdDir2 = Environment.getExternalStorageDirectory().getPath();
                                 img2.setImageURI(Uri.fromFile(new File(sdDir2 + "/school/" + studentId + ".jpg")));
