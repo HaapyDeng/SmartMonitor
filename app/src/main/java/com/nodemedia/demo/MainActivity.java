@@ -401,6 +401,7 @@ public class MainActivity extends AppCompatActivity implements NodePlayerDelegat
                 case 4:
 //
                     popupWindowHelper.dismiss();
+
                     flag = flag + 1;
                     switch (flag % 2) {
                         case 1:
@@ -440,6 +441,7 @@ public class MainActivity extends AppCompatActivity implements NodePlayerDelegat
                                 grade2.setTextColor(Color.WHITE);
 
                             }
+
                             break;
                     }
 //
@@ -525,6 +527,10 @@ public class MainActivity extends AppCompatActivity implements NodePlayerDelegat
                     initBarChart2();
                     break;
                 case 12:
+                    LinearLayout ll_112 = (LinearLayout) findViewById(R.id.ll__12);
+                    ll_112.setVisibility(View.INVISIBLE);
+                    LinearLayout ll_111 = (LinearLayout) findViewById(R.id.ll__11);
+                    ll_111.setVisibility(View.INVISIBLE);
                     initId();
                     break;
                 default:
@@ -707,7 +713,7 @@ public class MainActivity extends AppCompatActivity implements NodePlayerDelegat
     private void initBarChart1() {
 
         if (dataflag1 == 1) {
-            Log.d("view1","remove!!!");
+            Log.d("view1", "remove!!!");
             customBarChart1.removeView(customBarChart1);
         }
 
@@ -730,7 +736,7 @@ public class MainActivity extends AppCompatActivity implements NodePlayerDelegat
      */
     private void initBarChart2() {
         if (dataflag2 == 1) {
-            Log.d("view2","remove!!!");
+            Log.d("view2", "remove!!!");
             customBarChart2.removeView(customBarChart2);
         }
 
