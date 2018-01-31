@@ -104,6 +104,10 @@ public class MainActivity extends AppCompatActivity implements NodePlayerDelegat
     String video2 = "";
     String faceIp = "";
 
+    String wangId="",liuId="",zhangId="",outId="";
+    Long wangTime=1L,liuTime=1L,zhangTime=1L,outTime=1L;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -281,44 +285,130 @@ public class MainActivity extends AppCompatActivity implements NodePlayerDelegat
                 super.onSuccess(statusCode, headers, response);
                 try {
 //                    JSONArray id = response.getJSONArray("id");
-                    String id = response.getString("id");
-//                    Toast.makeText(MainActivity.this,"学号是："+id,Toast.LENGTH_LONG).show();
-                    Log.d("id", id.toString());
-                    if (id.length() == 0) {
-//                        new InitIdTimeThread().start();
-                        mHandler.sendEmptyMessageDelayed(12, 3000);
-                    } else {
-                        SharedPreferences getSId = getSharedPreferences("studentId", 0);
-                        String sid = getSId.getString("id", "0");
-                        Log.d("sid", "......" + sid);
-                        switch (1) {
-                            case 1:
-//                                studentId = id.get(0).toString().replace("\"", "");
-                                studentId =id;
-                                //保存数据信息
-                                if (sid.equals(studentId)) {
-//                                    new InitIdTimeThread().start();
-                                    mHandler.sendEmptyMessageDelayed(12, 3000);
-                                } else {
-                                    tag = 1;
-                                    SharedPreferences sId2 = getSharedPreferences("studentId", MODE_PRIVATE);
-                                    SharedPreferences.Editor edit2 = sId2.edit(); //编辑文件
-                                    edit2.putString("id", studentId);
-                                    edit2.commit();
-//                                    Toast.makeText(PlaylistActivity.this, studentId, Toast.LENGTH_LONG).show();
-                                    Log.d("studentId", studentId);
+//                    Toast.makeText(MainActivity.this,"返回值："+response.toString(),Toast.LENGTH_LONG).show();
+                    if (response.toString().equals("")){
+                        mHandler.sendEmptyMessageDelayed(13, 3000);
+                    }else {
+                        String id = response.getString("id");
+
+                        Log.d("id", id.toString());
+                        if (id.length() == 0){
+                            mHandler.sendEmptyMessageDelayed(13, 2000);
+                        }else {
+                            studentId =id;
+                            if (studentId.equals("5555")){
+                                Date dt= new Date();
+                                Long nowTime = dt.getTime();
+                                if ((nowTime-liuTime)/1000>6){
                                     popView = LayoutInflater.from(MainActivity.this).inflate(R.layout.popupview, null);
                                     Message msg = new Message();
                                     msg.what = 7;
                                     msg.obj = "1";
                                     mHandler.sendMessage(msg);
-
+                                }else {
+                                    mHandler.sendEmptyMessageDelayed(13, 2000);
                                 }
-                                break;
-                            default:
-                                break;
+                            }else if (studentId.equals("7777")){
+                                Date dt= new Date();
+                                Long nowTime = dt.getTime();
+                                if ((nowTime-wangTime)/1000>6){
+                                    popView = LayoutInflater.from(MainActivity.this).inflate(R.layout.popupview, null);
+                                    Message msg = new Message();
+                                    msg.what = 7;
+                                    msg.obj = "1";
+                                    mHandler.sendMessage(msg);
+                                }else {
+                                    mHandler.sendEmptyMessageDelayed(13, 2000);
+                                }
+                            }else if (studentId.equals("9999")){
+                                Date dt= new Date();
+                                Long nowTime = dt.getTime();
+                                if ((nowTime-zhangTime)/1000>6){
+                                    popView = LayoutInflater.from(MainActivity.this).inflate(R.layout.popupview, null);
+                                    Message msg = new Message();
+                                    msg.what = 7;
+                                    msg.obj = "1";
+                                    mHandler.sendMessage(msg);
+                                }else {
+                                    mHandler.sendEmptyMessageDelayed(13, 2000);
+                                }
+                            }else if (studentId.equals("666666")){
+                                Date dt= new Date();
+                                Long nowTime = dt.getTime();
+                                if ((nowTime-outTime)/1000>6){
+                                    popView = LayoutInflater.from(MainActivity.this).inflate(R.layout.popupview, null);
+                                    Message msg = new Message();
+                                    msg.what = 7;
+                                    msg.obj = "1";
+                                    mHandler.sendMessage(msg);
+                                }else {
+                                    mHandler.sendEmptyMessageDelayed(13, 2000);
+                                }
+                            }
+
+//                        if (id.equals("5555")){
+//                            studentId =id;
+//                            popView = LayoutInflater.from(MainActivity.this).inflate(R.layout.popupview, null);
+//                            Message msg = new Message();
+//                            msg.what = 7;
+//                            msg.obj = "1";
+//                            mHandler.sendMessage(msg);
+//                            LinearLayout ll1 = (LinearLayout) findViewById(R.id.ll__11);
+//                            ll1.setVisibility(View.VISIBLE);
+//                            mHandler.sendEmptyMessageDelayed(12, 100);
+//
+//                        }else if (id.equals("7777")){
+//                            LinearLayout ll2 = (LinearLayout) findViewById(R.id.ll__12);
+//                            ll2.setVisibility(View.VISIBLE);
+//                            mHandler.sendEmptyMessageDelayed(12, 100);
+//                        }else if (id.equals("9999")){
+//                            LinearLayout ll3 = (LinearLayout) findViewById(R.id.ll__33);
+//                            ll3.setVisibility(View.VISIBLE);
+//                            mHandler.sendEmptyMessageDelayed(12, 100);
+//                        }else {
+//                            LinearLayout ll4 = (LinearLayout) findViewById(R.id.ll__44);
+//                            ll4.setVisibility(View.VISIBLE);
+//                            mHandler.sendEmptyMessageDelayed(12, 100);
+//                        }
+
                         }
+//                    if (id.length() == 0) {
+////                        new InitIdTimeThread().start();
+//                        mHandler.sendEmptyMessageDelayed(12, 3000);
+//                    } else {
+//                        SharedPreferences getSId = getSharedPreferences("studentId", 0);
+//                        String sid = getSId.getString("id", "0");
+//                        Log.d("sid", "......" + sid);
+//                        switch (1) {
+//                            case 1:
+////                                studentId = id.get(0).toString().replace("\"", "");
+//                                studentId =id;
+//                                //保存数据信息
+//                                if (sid.equals(studentId)) {
+////                                    new InitIdTimeThread().start();
+//                                    mHandler.sendEmptyMessageDelayed(12, 3000);
+//                                } else {
+//                                    tag = 1;
+//                                    SharedPreferences sId2 = getSharedPreferences("studentId", MODE_PRIVATE);
+//                                    SharedPreferences.Editor edit2 = sId2.edit(); //编辑文件
+//                                    edit2.putString("id", studentId);
+//                                    edit2.commit();
+////                                    Toast.makeText(PlaylistActivity.this, studentId, Toast.LENGTH_LONG).show();
+//                                    Log.d("studentId", studentId);
+//                                    popView = LayoutInflater.from(MainActivity.this).inflate(R.layout.popupview, null);
+//                                    Message msg = new Message();
+//                                    msg.what = 7;
+//                                    msg.obj = "1";
+//                                    mHandler.sendMessage(msg);
+//
+//                                }
+//                                break;
+//                            default:
+//                                break;
+//                        }
+//                    }
                     }
+
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -333,6 +423,16 @@ public class MainActivity extends AppCompatActivity implements NodePlayerDelegat
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                 super.onFailure(statusCode, headers, responseString, throwable);
+//                Toast.makeText(MainActivity.this,"onFailure1",Toast.LENGTH_LONG).show();
+                mHandler.sendEmptyMessageDelayed(13, 3000);
+
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
+                super.onFailure(statusCode, headers, throwable, errorResponse);
+//                Toast.makeText(MainActivity.this,"onFailure2：",Toast.LENGTH_LONG).show();
+                mHandler.sendEmptyMessageDelayed(13, 3000);
             }
         });
 
@@ -347,24 +447,89 @@ public class MainActivity extends AppCompatActivity implements NodePlayerDelegat
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             switch (msg.what) {
+                case 20:
+                    LinearLayout ll1 = (LinearLayout) findViewById(R.id.ll__11);
+                    ll1.setVisibility(View.INVISIBLE);
+                    initId();
+                    break;
+                case 21:
+                    LinearLayout ll2 = (LinearLayout) findViewById(R.id.ll__12);
+                    ll2.setVisibility(View.INVISIBLE);
+                    initId();
+                    break;
+                case 22:
+                    LinearLayout ll3 = (LinearLayout) findViewById(R.id.ll__33);
+                    ll3.setVisibility(View.INVISIBLE);
+                    initId();
+                    break;
+                case 23:
+                    LinearLayout ll4 = (LinearLayout) findViewById(R.id.ll__44);
+                    ll4.setVisibility(View.INVISIBLE);
+                    initId();
+                    break;
 
                 case 1:
                     img_1 = (ImageView) popView.findViewById(R.id.img_1);
                     img_1.setVisibility(View.VISIBLE);
-                    mHandler.sendEmptyMessageDelayed(2, 1500);
+                    mHandler.sendEmptyMessageDelayed(2, 1000);
                     break;
                 case 2:
                     img_1 = (ImageView) popView.findViewById(R.id.img_1);
                     img_1.setVisibility(View.VISIBLE);
                     img_1.setImageDrawable(getResources().getDrawable(R.drawable.img_moshengrenshibei));
-                    mHandler.sendEmptyMessageDelayed(3, 2000);
+                    mHandler.sendEmptyMessageDelayed(3, 1000);
                     break;
                 case 3:
                     rl = (ImageView) popView.findViewById(R.id.rl);
                     rl.setVisibility(View.VISIBLE);
                     img_1 = (ImageView) popView.findViewById(R.id.img_1);
                     img_1.setVisibility(View.VISIBLE);
-                    if (studentId.length() == 6) {
+                    if (studentId.equals("5555")){
+                        liuId =studentId;
+                        Date dt= new Date();
+                        liuTime = dt.getTime();
+                        img_1.setImageDrawable(getResources().getDrawable(R.drawable.img_moshengrenbiaoji));
+                        text = (LinearLayout) popView.findViewById(R.id.ll_text);
+                        text.setVisibility(View.VISIBLE);
+                        TextView nameText2 = (TextView) popView.findViewById(R.id.name);
+                        TextView gradeText2 = (TextView) popView.findViewById(R.id.grade);
+                        userName = "刘校";
+                        nameText2.setText(userName);
+                        nameText2.setTextColor(Color.RED);
+                        gradeText2.setText(".");
+                        gradeText2.setTextColor(Color.RED);
+                    }else if (studentId.equals("7777")){
+                        wangId =studentId;
+                        Date dt= new Date();
+                        wangTime = dt.getTime();
+                        img_1.setImageDrawable(getResources().getDrawable(R.drawable.img_moshengrenbiaoji));
+                        text = (LinearLayout) popView.findViewById(R.id.ll_text);
+                        text.setVisibility(View.VISIBLE);
+                        TextView nameText2 = (TextView) popView.findViewById(R.id.name);
+                        TextView gradeText2 = (TextView) popView.findViewById(R.id.grade);
+                        userName = "王校";
+                        nameText2.setText(userName);
+                        nameText2.setTextColor(Color.RED);
+                        gradeText2.setText(".");
+                        gradeText2.setTextColor(Color.RED);
+                    }else if (studentId.equals("9999")){
+                        zhangId =studentId;
+                        Date dt= new Date();
+                        zhangTime = dt.getTime();
+                        img_1.setImageDrawable(getResources().getDrawable(R.drawable.img_moshengrenbiaoji));
+                        text = (LinearLayout) popView.findViewById(R.id.ll_text);
+                        text.setVisibility(View.VISIBLE);
+                        TextView nameText2 = (TextView) popView.findViewById(R.id.name);
+                        TextView gradeText2 = (TextView) popView.findViewById(R.id.grade);
+                        userName = "张黛西";
+                        nameText2.setText(userName);
+                        nameText2.setTextColor(Color.RED);
+                        gradeText2.setText(".");
+                        gradeText2.setTextColor(Color.RED);
+                    }else {
+                        outId="666666";
+                        Date dt= new Date();
+                        outTime = dt.getTime();
                         img_1.setImageDrawable(getResources().getDrawable(R.drawable.img_moshengrenbiaoji));
                         text = (LinearLayout) popView.findViewById(R.id.ll_text);
                         text.setVisibility(View.VISIBLE);
@@ -375,83 +540,118 @@ public class MainActivity extends AppCompatActivity implements NodePlayerDelegat
                         nameText2.setTextColor(Color.RED);
                         gradeText2.setText("请勿擅自进入");
                         gradeText2.setTextColor(Color.RED);
-                        mHandler.sendEmptyMessageDelayed(4, 3000);
-
-                    } else {
-                        String sdDir = Environment.getExternalStorageDirectory().getPath();
-                        img_1.setImageURI(Uri.fromFile(new File(sdDir + "/school/" + studentId + ".jpg")));
-                        String dataa = "{\"5555\":[\"0\",\"0\",\"刘校\"],\"7777\":[\"0\",\"0\",\"王校\"],\"9999\":[\"0\",\"0\",\"张黛西\"],\"1003\":[\"十班\",\"高一\",\"闫璟\"],\"1004\":[\"十班\",\"高一\",\"范朝悦\"],\"1005\":[\"十班\",\"高一\",\"王瀚茹\"],\"1006\":[\"十班\",\"高一\",\"程明轩\"],\"1007\":[\"十班\",\"高一\",\"周欣语\"],\"1008\":[\"十班\",\"高一\",\"陈桦\"],\"1009\":[\"十班\",\"高一\",\"杨灿\"],\"1010\":[\"十班\",\"高一\",\"古思融\"],\"1011\":[\"十班\",\"高一\",\"张颖慧\"],\"1012\":[\"十班\",\"高一\",\"杨忻缘\"],\"1013\":[\"十班\",\"高一\",\"赵嘉宝\"],\"1101\":[\"十一班\",\"高一\",\"高煜\"],\"1102\":[\"十一班\",\"高一\",\"于思萌\"],\"1103\":[\"十一班\",\"高一\",\"邵璟琦\"],\"1104\":[\"十一班\",\"高一\",\"苑佳慧\"],\"1105\":[\"十一班\",\"高一\",\"唐昕\"],\"1106\":[\"十一班\",\"高一\",\"李雅睿\"],\"1107\":[\"十一班\",\"高一\",\"张瑛琦\"],\"1108\":[\"十一班\",\"高一\",\"陈曦\"],\"1109\":[\"十一班\",\"高一\",\"兰钰洁\"],\"1110\":[\"十一班\",\"高一\",\"张百盈\"],\"1111\":[\"十一班\",\"高一\",\"王欣怡\"],\"1112\":[\"十一班\",\"高一\",\"白晟源\"],\"1113\":[\"十一班\",\"高一\",\"董莹莹\"],\"1114\":[\"十一班\",\"高一\",\"褚宇轩\"],\"1115\":[\"十一班\",\"高一\",\"南士圆\"],\"1116\":[\"十一班\",\"高一\",\"宋佳妍\"],\"1117\":[\"十一班\",\"高一\",\"孙淑雨\"],\"1201\":[\"十二班\",\"高一\",\"张以宁\"],\"1202\":[\"十二班\",\"高一\",\"白梦凡\"],\"1203\":[\"十二班\",\"高一\",\"陈薇\"],\"1204\":[\"十二班\",\"高一\",\"陈安琪\"],\"1205\":[\"十二班\",\"高一\",\"张洋\"],\"1206\":[\"十二班\",\"高一\",\"刘丹\"],\"1207\":[\"十二班\",\"高一\",\"马珊珊\"],\"1208\":[\"十二班\",\"高一\",\"白琳萱\"],\"1209\":[\"十二班\",\"高一\",\"赵伟宏\"],\"1210\":[\"十二班\",\"高一\",\"潘诗蕊\"],\"1211\":[\"十二班\",\"高一\",\"白倩\"],\"1212\":[\"十二班\",\"高一\",\"尹正聪\"],\"1213\":[\"十二班\",\"高一\",\"张欣怡\"],\"1214\":[\"十二班\",\"高一\",\"王宇杰\"],\"1215\":[\"十二班\",\"高一\",\"田琪\"],\"1301\":[\"十三班\",\"高一\",\"吴曼\"],\"1302\":[\"十三班\",\"高一\",\"李金红\"],\"1303\":[\"十三班\",\"高一\",\"赵紫逸\"],\"1304\":[\"十三班\",\"高一\",\"张卜凡\"],\"1305\":[\"十三班\",\"高一\",\"杨皓玉\"],\"1306\":[\"十三班\",\"高一\",\"李文骏\"],\"1307\":[\"十三班\",\"高一\",\"郭慧琪\"],\"1308\":[\"十三班\",\"高一\",\"王海悦\"],\"1309\":[\"十三班\",\"高一\",\"周晗\"],\"1310\":[\"十三班\",\"高一\",\"王艳桐\"],\"1311\":[\"十三班\",\"高一\",\"李文璐\"],\"1312\":[\"十三班\",\"高一\",\"殷梦楠\"],\"1313\":[\"十三班\",\"高一\",\"王玉\"],\"1314\":[\"十三班\",\"高一\",\"李晗\"],\"1315\":[\"十三班\",\"高一\",\"张乐孜\"],\"1401\":[\"十四班\",\"高一\",\"李曼宁\"],\"1402\":[\"十四班\",\"高一\",\"陈梓祎\"],\"1403\":[\"十四班\",\"高一\",\"张琪\"],\"1404\":[\"十四班\",\"高一\",\"张金璐\"],\"1405\":[\"十四班\",\"高一\",\"宋姝娴\"],\"1406\":[\"十四班\",\"高一\",\"张月娇\"],\"1407\":[\"十四班\",\"高一\",\"陈星竹\"],\"1408\":[\"十四班\",\"高一\",\"周美诗\"],\"1409\":[\"十四班\",\"高一\",\"邹蕾\"],\"1410\":[\"十四班\",\"高一\",\"周彤\"],\"1411\":[\"十四班\",\"高一\",\"潘旌阁\"],\"1412\":[\"十四班\",\"高一\",\"刘广茁\"],\"1413\":[\"十四班\",\"高一\",\"卢灿\"],\"1414\":[\"十四班\",\"高一\",\"王甜甜\"],\"1415\":[\"十四班\",\"高一\",\"翟鸿颖\"],\"1501\":[\"十五班\",\"高一\",\"刘文萱\"],\"1502\":[\"十五班\",\"高一\",\"王子一\"],\"1503\":[\"十五班\",\"高一\",\"冯爽\"],\"1504\":[\"十五班\",\"高一\",\"王美琪\"],\"1505\":[\"十五班\",\"高一\",\"杨文宣\"],\"1506\":[\"十五班\",\"高一\",\"王佳佳\"],\"1507\":[\"十五班\",\"高一\",\"韩雅\"],\"1508\":[\"十五班\",\"高一\",\"张秋\"],\"1601\":[\"十六班\",\"高一\",\"何静雅\"],\"1602\":[\"十六班\",\"高一\",\"窦佳怡\"],\"1603\":[\"十六班\",\"高一\",\"李金津\"],\"1604\":[\"十六班\",\"高一\",\"张雪晴\"],\"1605\":[\"十六班\",\"高一\",\"赵欣雨\"],\"1606\":[\"十六班\",\"高一\",\"商诗玉\"],\"1607\":[\"十六班\",\"高一\",\"吕姝怡\"],\"1608\":[\"十六班\",\"高一\",\"何斯诺\"],\"1609\":[\"十六班\",\"高一\",\"房冰杰\"],\"1610\":[\"十六班\",\"高一\",\"崔玉鑫\"],\"1611\":[\"十六班\",\"高一\",\"张艺萱\"],\"1612\":[\"十六班\",\"高一\",\"赵馨一\"],\"1613\":[\"十六班\",\"高一\",\"李洪运\"],\"1614\":[\"十六班\",\"高一\",\"冯冉\"],\"1615\":[\"十六班\",\"高一\",\"焦俊杨\"],\"1701\":[\"十七班\",\"高一\",\"蒙建文\"],\"1702\":[\"十七班\",\"高一\",\"张秀怡\"],\"1703\":[\"十七班\",\"高一\",\"方新爽\"],\"1704\":[\"十七班\",\"高一\",\"高蕊\"],\"1705\":[\"十七班\",\"高一\",\"邓锦佳\"],\"1706\":[\"十七班\",\"高一\",\"马帅\"],\"1707\":[\"十七班\",\"高一\",\"马然\"],\"1708\":[\"十七班\",\"高一\",\"尹欣璐\"],\"1709\":[\"十七班\",\"高一\",\"李畅\"],\"1710\":[\"十七班\",\"高一\",\"唐玉琪\"],\"1711\":[\"十七班\",\"高一\",\"郑思琪\"],\"1801\":[\"十八班\",\"高一\",\"石瑞晓\"],\"1802\":[\"十八班\",\"高一\",\"庞子倩\"],\"1803\":[\"十八班\",\"高一\",\"杨楠\"],\"1804\":[\"十八班\",\"高一\",\"牛建晴\"],\"1805\":[\"十八班\",\"高一\",\"闫宇彤\"],\"1806\":[\"十八班\",\"高一\",\"孙蕊\"],\"1807\":[\"十八班\",\"高一\",\"张欢\"],\"1808\":[\"十八班\",\"高一\",\"闫鹔\"],\"1809\":[\"十八班\",\"高一\",\"张紫璇\"],\"1810\":[\"十八班\",\"高一\",\"席靖\"],\"1811\":[\"十八班\",\"高一\",\"周晶\"],\"0101\":[\"一班\",\"高一\",\"张心怡\"],\"0102\":[\"一班\",\"高一\",\"张桂媛\"],\"0103\":[\"一班\",\"高一\",\"林璐\"],\"0104\":[\"一班\",\"高一\",\"岳博傲\"],\"0105\":[\"一班\",\"高一\",\"王伶怡\"],\"0106\":[\"一班\",\"高一\",\"程菲\"],\"0107\":[\"一班\",\"高一\",\"陈思\"],\"0108\":[\"一班\",\"高一\",\"杨荣慧\"],\"0201\":[\"二班\",\"高一\",\"曹英琦\"],\"0202\":[\"二班\",\"高一\",\"林欣悦\"],\"0203\":[\"二班\",\"高一\",\"马静怡\"],\"0204\":[\"二班\",\"高一\",\"曹鑫愿\"],\"0205\":[\"二班\",\"高一\",\"王晨\"],\"0206\":[\"二班\",\"高一\",\"孙晓雨\"],\"0207\":[\"二班\",\"高一\",\"于瀛\"],\"0208\":[\"二班\",\"高一\",\"王琳\"],\"0209\":[\"二班\",\"高一\",\"关彤\"],\"0210\":[\"二班\",\"高一\",\"刘欣雨\"],\"0301\":[\"三班\",\"高一\",\"王昕蕊\"],\"0302\":[\"三班\",\"高一\",\"李雅茜\"],\"0303\":[\"三班\",\"高一\",\"段蕊\"],\"0304\":[\"三班\",\"高一\",\"焦雅萱\"],\"0305\":[\"三班\",\"高一\",\"杨硕\"],\"0306\":[\"三班\",\"高一\",\"王天琪\"],\"0307\":[\"三班\",\"高一\",\"杜晨\"],\"0308\":[\"三班\",\"高一\",\"李梦晨\"],\"0309\":[\"三班\",\"高一\",\"赵铭希\"],\"0310\":[\"三班\",\"高一\",\"郭骏\"],\"0311\":[\"三班\",\"高一\",\"马双双\"],\"0312\":[\"三班\",\"高一\",\"孙浩然\"],\"0313\":[\"三班\",\"高一\",\"陈佳蔚\"],\"0314\":[\"三班\",\"高一\",\"赵雅洁\"],\"0315\":[\"三班\",\"高一\",\"孙雨轩\"],\"0401\":[\"四班\",\"高一\",\"李畅\"],\"0402\":[\"四班\",\"高一\",\"王靖瑶\"],\"0403\":[\"四班\",\"高一\",\"白馨怡\"],\"0404\":[\"四班\",\"高一\",\"王君妍\"],\"0405\":[\"四班\",\"高一\",\"倪彬钰\"],\"0406\":[\"四班\",\"高一\",\"卜玉柱\"],\"0407\":[\"四班\",\"高一\",\"董乐瑶\"],\"0408\":[\"四班\",\"高一\",\"王皓月\"],\"0409\":[\"四班\",\"高一\",\"单子湘\"],\"0410\":[\"四班\",\"高一\",\"杜鑫宇\"],\"0411\":[\"四班\",\"高一\",\"李欣芸\"],\"0412\":[\"四班\",\"高一\",\"崔玉涛\"],\"0413\":[\"四班\",\"高一\",\"马蓉蓉\"],\"0414\":[\"四班\",\"高一\",\"张海柔\"],\"0415\":[\"四班\",\"高一\",\"李鹤\"],\"0501\":[\"五班\",\"高一\",\"王丽颖\"],\"0502\":[\"五班\",\"高一\",\"孙胜男\"],\"0503\":[\"五班\",\"高一\",\"赵淑雅\"],\"0504\":[\"五班\",\"高一\",\"白玉鸿\"],\"0505\":[\"五班\",\"高一\",\"薛研\"],\"0506\":[\"五班\",\"高一\",\"杨允\"],\"0507\":[\"五班\",\"高一\",\"刘雨轩\"],\"0508\":[\"五班\",\"高一\",\"芮瑞\"],\"0509\":[\"五班\",\"高一\",\"刘卓琦\"],\"0510\":[\"五班\",\"高一\",\"张延静\"],\"0511\":[\"五班\",\"高一\",\"李鑫伟\"],\"0512\":[\"五班\",\"高一\",\"尹丽雪\"],\"0513\":[\"五班\",\"高一\",\"刘畅\"],\"0514\":[\"五班\",\"高一\",\"张相文\"],\"0515\":[\"五班\",\"高一\",\"王健怡\"],\"0516\":[\"五班\",\"高一\",\"王帆\"],\"0517\":[\"五班\",\"高一\",\"赵盼\"],\"0518\":[\"五班\",\"高一\",\"周一凡\"],\"0601\":[\"六班\",\"高一\",\"马英\"],\"0602\":[\"六班\",\"高一\",\"王峥\"],\"0603\":[\"六班\",\"高一\",\"房佳懿\"],\"0604\":[\"六班\",\"高一\",\"苏怡\"],\"0605\":[\"六班\",\"高一\",\"孙璐彤\"],\"0606\":[\"六班\",\"高一\",\"吴然\"],\"0607\":[\"六班\",\"高一\",\"袁紫君\"],\"0608\":[\"六班\",\"高一\",\"闫雪菲\"],\"0609\":[\"六班\",\"高一\",\"王婧瑀\"],\"0610\":[\"六班\",\"高一\",\"何蕊\"],\"0611\":[\"六班\",\"高一\",\"王月颖\"],\"0701\":[\"七班\",\"高一\",\"吴会芮\"],\"0702\":[\"七班\",\"高一\",\"戴梦媛\"],\"0703\":[\"七班\",\"高一\",\"徐煜萍\"],\"0704\":[\"七班\",\"高一\",\"吕宏骏\"],\"0705\":[\"七班\",\"高一\",\"梅雨欣\"],\"0706\":[\"七班\",\"高一\",\"周雨轩\"],\"0707\":[\"七班\",\"高一\",\"孙瑶\"],\"0708\":[\"七班\",\"高一\",\"王艺杰\"],\"0709\":[\"七班\",\"高一\",\"王晓磊\"],\"0710\":[\"七班\",\"高一\",\"张婧妍\"],\"0711\":[\"七班\",\"高一\",\"杨蔓\"],\"0712\":[\"七班\",\"高一\",\"杜亚晴\"],\"0713\":[\"七班\",\"高一\",\"王茜\"],\"0714\":[\"七班\",\"高一\",\"李德宇\"],\"0715\":[\"七班\",\"高一\",\"蒋薇\"],\"0716\":[\"七班\",\"高一\",\"郭雯晴\"],\"0717\":[\"七班\",\"高一\",\"王志彤\"],\"0718\":[\"七班\",\"高一\",\"杨梦迪\"],\"0801\":[\"八班\",\"高一\",\"孙萍\"],\"0802\":[\"八班\",\"高一\",\"薛天琪\"],\"0803\":[\"八班\",\"高一\",\"张雨琪\"],\"0804\":[\"八班\",\"高一\",\"郝楚曦\"],\"0805\":[\"八班\",\"高一\",\"杨雨晨\"],\"0806\":[\"八班\",\"高一\",\"张习\"],\"0807\":[\"八班\",\"高一\",\"刘秀晴\"],\"0808\":[\"八班\",\"高一\",\"杨文茹\"],\"0809\":[\"八班\",\"高一\",\"刘文玉\"],\"0810\":[\"八班\",\"高一\",\"刘佳怡\"],\"0811\":[\"八班\",\"高一\",\"王雨潇\"],\"0901\":[\"九班\",\"高一\",\"王茗萱\"],\"0902\":[\"九班\",\"高一\",\"武彦颍\"],\"0903\":[\"九班\",\"高一\",\"齐月\"],\"0904\":[\"九班\",\"高一\",\"芮爽\"],\"0905\":[\"九班\",\"高一\",\"赵彤\"],\"0906\":[\"九班\",\"高一\",\"马艺杭\"],\"0907\":[\"九班\",\"高一\",\"李想\"],\"0908\":[\"九班\",\"高一\",\"王璐瑶\"],\"0909\":[\"九班\",\"高一\",\"孙杨\"],\"0910\":[\"九班\",\"高一\",\"任冠熹\"],\"0911\":[\"九班\",\"高一\",\"许阳\"],\"0912\":[\"九班\",\"高一\",\"李天晴\"],\"0913\":[\"九班\",\"高一\",\"齐伟然\"],\"0914\":[\"九班\",\"高一\",\"张楠\"]}";
-                        try {
-                            JSONObject info = new JSONObject(dataa);
-                            Log.d("infoa", info.toString());
-                            JSONArray array = info.getJSONArray(studentId);
-                            Log.d("array", array.toString());
-                            userName = array.get(2).toString();
-                            userGrade = array.get(1).toString();
-                            userClass = array.get(0).toString();
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        text = (LinearLayout) popView.findViewById(R.id.ll_text);
-                        text.setVisibility(View.VISIBLE);
-                        TextView nameText = (TextView) popView.findViewById(R.id.name);
-                        TextView gradeText = (TextView) popView.findViewById(R.id.grade);
-                        nameText.setText(userName);
-                        gradeText.setText(userGrade + " · " + userClass);
-                        mHandler.sendEmptyMessageDelayed(4, 3000);
                     }
+                    mHandler.sendEmptyMessageDelayed(4, 1000);
+//                    if (studentId.length() == 6) {
+//                        img_1.setImageDrawable(getResources().getDrawable(R.drawable.img_moshengrenbiaoji));
+//                        text = (LinearLayout) popView.findViewById(R.id.ll_text);
+//                        text.setVisibility(View.VISIBLE);
+//                        TextView nameText2 = (TextView) popView.findViewById(R.id.name);
+//                        TextView gradeText2 = (TextView) popView.findViewById(R.id.grade);
+//                        userName = "校外人员";
+//                        nameText2.setText(userName);
+//                        nameText2.setTextColor(Color.RED);
+//                        gradeText2.setText("请勿擅自进入");
+//                        gradeText2.setTextColor(Color.RED);
+//                        mHandler.sendEmptyMessageDelayed(4, 3000);
+//
+//                    } else {
+//                        String sdDir = Environment.getExternalStorageDirectory().getPath();
+//                        img_1.setImageURI(Uri.fromFile(new File(sdDir + "/school/" + studentId + ".jpg")));
+//                        String dataa = "{\"a5555\":[\"0\",\"0\",\"刘校\"],\"a7777\":[\"0\",\"0\",\"王校\"],\"a9999\":[\"0\",\"0\",\"张黛西\"],\"1003\":[\"十班\",\"高一\",\"闫璟\"],\"1004\":[\"十班\",\"高一\",\"范朝悦\"],\"1005\":[\"十班\",\"高一\",\"王瀚茹\"],\"1006\":[\"十班\",\"高一\",\"程明轩\"],\"1007\":[\"十班\",\"高一\",\"周欣语\"],\"1008\":[\"十班\",\"高一\",\"陈桦\"],\"1009\":[\"十班\",\"高一\",\"杨灿\"],\"1010\":[\"十班\",\"高一\",\"古思融\"],\"1011\":[\"十班\",\"高一\",\"张颖慧\"],\"1012\":[\"十班\",\"高一\",\"杨忻缘\"],\"1013\":[\"十班\",\"高一\",\"赵嘉宝\"],\"1101\":[\"十一班\",\"高一\",\"高煜\"],\"1102\":[\"十一班\",\"高一\",\"于思萌\"],\"1103\":[\"十一班\",\"高一\",\"邵璟琦\"],\"1104\":[\"十一班\",\"高一\",\"苑佳慧\"],\"1105\":[\"十一班\",\"高一\",\"唐昕\"],\"1106\":[\"十一班\",\"高一\",\"李雅睿\"],\"1107\":[\"十一班\",\"高一\",\"张瑛琦\"],\"1108\":[\"十一班\",\"高一\",\"陈曦\"],\"1109\":[\"十一班\",\"高一\",\"兰钰洁\"],\"1110\":[\"十一班\",\"高一\",\"张百盈\"],\"1111\":[\"十一班\",\"高一\",\"王欣怡\"],\"1112\":[\"十一班\",\"高一\",\"白晟源\"],\"1113\":[\"十一班\",\"高一\",\"董莹莹\"],\"1114\":[\"十一班\",\"高一\",\"褚宇轩\"],\"1115\":[\"十一班\",\"高一\",\"南士圆\"],\"1116\":[\"十一班\",\"高一\",\"宋佳妍\"],\"1117\":[\"十一班\",\"高一\",\"孙淑雨\"],\"1201\":[\"十二班\",\"高一\",\"张以宁\"],\"1202\":[\"十二班\",\"高一\",\"白梦凡\"],\"1203\":[\"十二班\",\"高一\",\"陈薇\"],\"1204\":[\"十二班\",\"高一\",\"陈安琪\"],\"1205\":[\"十二班\",\"高一\",\"张洋\"],\"1206\":[\"十二班\",\"高一\",\"刘丹\"],\"1207\":[\"十二班\",\"高一\",\"马珊珊\"],\"1208\":[\"十二班\",\"高一\",\"白琳萱\"],\"1209\":[\"十二班\",\"高一\",\"赵伟宏\"],\"1210\":[\"十二班\",\"高一\",\"潘诗蕊\"],\"1211\":[\"十二班\",\"高一\",\"白倩\"],\"1212\":[\"十二班\",\"高一\",\"尹正聪\"],\"1213\":[\"十二班\",\"高一\",\"张欣怡\"],\"1214\":[\"十二班\",\"高一\",\"王宇杰\"],\"1215\":[\"十二班\",\"高一\",\"田琪\"],\"1301\":[\"十三班\",\"高一\",\"吴曼\"],\"1302\":[\"十三班\",\"高一\",\"李金红\"],\"1303\":[\"十三班\",\"高一\",\"赵紫逸\"],\"1304\":[\"十三班\",\"高一\",\"张卜凡\"],\"1305\":[\"十三班\",\"高一\",\"杨皓玉\"],\"1306\":[\"十三班\",\"高一\",\"李文骏\"],\"1307\":[\"十三班\",\"高一\",\"郭慧琪\"],\"1308\":[\"十三班\",\"高一\",\"王海悦\"],\"1309\":[\"十三班\",\"高一\",\"周晗\"],\"1310\":[\"十三班\",\"高一\",\"王艳桐\"],\"1311\":[\"十三班\",\"高一\",\"李文璐\"],\"1312\":[\"十三班\",\"高一\",\"殷梦楠\"],\"1313\":[\"十三班\",\"高一\",\"王玉\"],\"1314\":[\"十三班\",\"高一\",\"李晗\"],\"1315\":[\"十三班\",\"高一\",\"张乐孜\"],\"1401\":[\"十四班\",\"高一\",\"李曼宁\"],\"1402\":[\"十四班\",\"高一\",\"陈梓祎\"],\"1403\":[\"十四班\",\"高一\",\"张琪\"],\"1404\":[\"十四班\",\"高一\",\"张金璐\"],\"1405\":[\"十四班\",\"高一\",\"宋姝娴\"],\"1406\":[\"十四班\",\"高一\",\"张月娇\"],\"1407\":[\"十四班\",\"高一\",\"陈星竹\"],\"1408\":[\"十四班\",\"高一\",\"周美诗\"],\"1409\":[\"十四班\",\"高一\",\"邹蕾\"],\"1410\":[\"十四班\",\"高一\",\"周彤\"],\"1411\":[\"十四班\",\"高一\",\"潘旌阁\"],\"1412\":[\"十四班\",\"高一\",\"刘广茁\"],\"1413\":[\"十四班\",\"高一\",\"卢灿\"],\"1414\":[\"十四班\",\"高一\",\"王甜甜\"],\"1415\":[\"十四班\",\"高一\",\"翟鸿颖\"],\"1501\":[\"十五班\",\"高一\",\"刘文萱\"],\"1502\":[\"十五班\",\"高一\",\"王子一\"],\"1503\":[\"十五班\",\"高一\",\"冯爽\"],\"1504\":[\"十五班\",\"高一\",\"王美琪\"],\"1505\":[\"十五班\",\"高一\",\"杨文宣\"],\"1506\":[\"十五班\",\"高一\",\"王佳佳\"],\"1507\":[\"十五班\",\"高一\",\"韩雅\"],\"1508\":[\"十五班\",\"高一\",\"张秋\"],\"1601\":[\"十六班\",\"高一\",\"何静雅\"],\"1602\":[\"十六班\",\"高一\",\"窦佳怡\"],\"1603\":[\"十六班\",\"高一\",\"李金津\"],\"1604\":[\"十六班\",\"高一\",\"张雪晴\"],\"1605\":[\"十六班\",\"高一\",\"赵欣雨\"],\"1606\":[\"十六班\",\"高一\",\"商诗玉\"],\"1607\":[\"十六班\",\"高一\",\"吕姝怡\"],\"1608\":[\"十六班\",\"高一\",\"何斯诺\"],\"1609\":[\"十六班\",\"高一\",\"房冰杰\"],\"1610\":[\"十六班\",\"高一\",\"崔玉鑫\"],\"1611\":[\"十六班\",\"高一\",\"张艺萱\"],\"1612\":[\"十六班\",\"高一\",\"赵馨一\"],\"1613\":[\"十六班\",\"高一\",\"李洪运\"],\"1614\":[\"十六班\",\"高一\",\"冯冉\"],\"1615\":[\"十六班\",\"高一\",\"焦俊杨\"],\"1701\":[\"十七班\",\"高一\",\"蒙建文\"],\"1702\":[\"十七班\",\"高一\",\"张秀怡\"],\"1703\":[\"十七班\",\"高一\",\"方新爽\"],\"1704\":[\"十七班\",\"高一\",\"高蕊\"],\"1705\":[\"十七班\",\"高一\",\"邓锦佳\"],\"1706\":[\"十七班\",\"高一\",\"马帅\"],\"1707\":[\"十七班\",\"高一\",\"马然\"],\"1708\":[\"十七班\",\"高一\",\"尹欣璐\"],\"1709\":[\"十七班\",\"高一\",\"李畅\"],\"1710\":[\"十七班\",\"高一\",\"唐玉琪\"],\"1711\":[\"十七班\",\"高一\",\"郑思琪\"],\"1801\":[\"十八班\",\"高一\",\"石瑞晓\"],\"1802\":[\"十八班\",\"高一\",\"庞子倩\"],\"1803\":[\"十八班\",\"高一\",\"杨楠\"],\"1804\":[\"十八班\",\"高一\",\"牛建晴\"],\"1805\":[\"十八班\",\"高一\",\"闫宇彤\"],\"1806\":[\"十八班\",\"高一\",\"孙蕊\"],\"1807\":[\"十八班\",\"高一\",\"张欢\"],\"1808\":[\"十八班\",\"高一\",\"闫鹔\"],\"1809\":[\"十八班\",\"高一\",\"张紫璇\"],\"1810\":[\"十八班\",\"高一\",\"席靖\"],\"1811\":[\"十八班\",\"高一\",\"周晶\"],\"0101\":[\"一班\",\"高一\",\"张心怡\"],\"0102\":[\"一班\",\"高一\",\"张桂媛\"],\"0103\":[\"一班\",\"高一\",\"林璐\"],\"0104\":[\"一班\",\"高一\",\"岳博傲\"],\"0105\":[\"一班\",\"高一\",\"王伶怡\"],\"0106\":[\"一班\",\"高一\",\"程菲\"],\"0107\":[\"一班\",\"高一\",\"陈思\"],\"0108\":[\"一班\",\"高一\",\"杨荣慧\"],\"0201\":[\"二班\",\"高一\",\"曹英琦\"],\"0202\":[\"二班\",\"高一\",\"林欣悦\"],\"0203\":[\"二班\",\"高一\",\"马静怡\"],\"0204\":[\"二班\",\"高一\",\"曹鑫愿\"],\"0205\":[\"二班\",\"高一\",\"王晨\"],\"0206\":[\"二班\",\"高一\",\"孙晓雨\"],\"0207\":[\"二班\",\"高一\",\"于瀛\"],\"0208\":[\"二班\",\"高一\",\"王琳\"],\"0209\":[\"二班\",\"高一\",\"关彤\"],\"0210\":[\"二班\",\"高一\",\"刘欣雨\"],\"0301\":[\"三班\",\"高一\",\"王昕蕊\"],\"0302\":[\"三班\",\"高一\",\"李雅茜\"],\"0303\":[\"三班\",\"高一\",\"段蕊\"],\"0304\":[\"三班\",\"高一\",\"焦雅萱\"],\"0305\":[\"三班\",\"高一\",\"杨硕\"],\"0306\":[\"三班\",\"高一\",\"王天琪\"],\"0307\":[\"三班\",\"高一\",\"杜晨\"],\"0308\":[\"三班\",\"高一\",\"李梦晨\"],\"0309\":[\"三班\",\"高一\",\"赵铭希\"],\"0310\":[\"三班\",\"高一\",\"郭骏\"],\"0311\":[\"三班\",\"高一\",\"马双双\"],\"0312\":[\"三班\",\"高一\",\"孙浩然\"],\"0313\":[\"三班\",\"高一\",\"陈佳蔚\"],\"0314\":[\"三班\",\"高一\",\"赵雅洁\"],\"0315\":[\"三班\",\"高一\",\"孙雨轩\"],\"0401\":[\"四班\",\"高一\",\"李畅\"],\"0402\":[\"四班\",\"高一\",\"王靖瑶\"],\"0403\":[\"四班\",\"高一\",\"白馨怡\"],\"0404\":[\"四班\",\"高一\",\"王君妍\"],\"0405\":[\"四班\",\"高一\",\"倪彬钰\"],\"0406\":[\"四班\",\"高一\",\"卜玉柱\"],\"0407\":[\"四班\",\"高一\",\"董乐瑶\"],\"0408\":[\"四班\",\"高一\",\"王皓月\"],\"0409\":[\"四班\",\"高一\",\"单子湘\"],\"0410\":[\"四班\",\"高一\",\"杜鑫宇\"],\"0411\":[\"四班\",\"高一\",\"李欣芸\"],\"0412\":[\"四班\",\"高一\",\"崔玉涛\"],\"0413\":[\"四班\",\"高一\",\"马蓉蓉\"],\"0414\":[\"四班\",\"高一\",\"张海柔\"],\"0415\":[\"四班\",\"高一\",\"李鹤\"],\"0501\":[\"五班\",\"高一\",\"王丽颖\"],\"0502\":[\"五班\",\"高一\",\"孙胜男\"],\"0503\":[\"五班\",\"高一\",\"赵淑雅\"],\"0504\":[\"五班\",\"高一\",\"白玉鸿\"],\"0505\":[\"五班\",\"高一\",\"薛研\"],\"0506\":[\"五班\",\"高一\",\"杨允\"],\"0507\":[\"五班\",\"高一\",\"刘雨轩\"],\"0508\":[\"五班\",\"高一\",\"芮瑞\"],\"0509\":[\"五班\",\"高一\",\"刘卓琦\"],\"0510\":[\"五班\",\"高一\",\"张延静\"],\"0511\":[\"五班\",\"高一\",\"李鑫伟\"],\"0512\":[\"五班\",\"高一\",\"尹丽雪\"],\"0513\":[\"五班\",\"高一\",\"刘畅\"],\"0514\":[\"五班\",\"高一\",\"张相文\"],\"0515\":[\"五班\",\"高一\",\"王健怡\"],\"0516\":[\"五班\",\"高一\",\"王帆\"],\"0517\":[\"五班\",\"高一\",\"赵盼\"],\"0518\":[\"五班\",\"高一\",\"周一凡\"],\"0601\":[\"六班\",\"高一\",\"马英\"],\"0602\":[\"六班\",\"高一\",\"王峥\"],\"0603\":[\"六班\",\"高一\",\"房佳懿\"],\"0604\":[\"六班\",\"高一\",\"苏怡\"],\"0605\":[\"六班\",\"高一\",\"孙璐彤\"],\"0606\":[\"六班\",\"高一\",\"吴然\"],\"0607\":[\"六班\",\"高一\",\"袁紫君\"],\"0608\":[\"六班\",\"高一\",\"闫雪菲\"],\"0609\":[\"六班\",\"高一\",\"王婧瑀\"],\"0610\":[\"六班\",\"高一\",\"何蕊\"],\"0611\":[\"六班\",\"高一\",\"王月颖\"],\"0701\":[\"七班\",\"高一\",\"吴会芮\"],\"0702\":[\"七班\",\"高一\",\"戴梦媛\"],\"0703\":[\"七班\",\"高一\",\"徐煜萍\"],\"0704\":[\"七班\",\"高一\",\"吕宏骏\"],\"0705\":[\"七班\",\"高一\",\"梅雨欣\"],\"0706\":[\"七班\",\"高一\",\"周雨轩\"],\"0707\":[\"七班\",\"高一\",\"孙瑶\"],\"0708\":[\"七班\",\"高一\",\"王艺杰\"],\"0709\":[\"七班\",\"高一\",\"王晓磊\"],\"0710\":[\"七班\",\"高一\",\"张婧妍\"],\"0711\":[\"七班\",\"高一\",\"杨蔓\"],\"0712\":[\"七班\",\"高一\",\"杜亚晴\"],\"0713\":[\"七班\",\"高一\",\"王茜\"],\"0714\":[\"七班\",\"高一\",\"李德宇\"],\"0715\":[\"七班\",\"高一\",\"蒋薇\"],\"0716\":[\"七班\",\"高一\",\"郭雯晴\"],\"0717\":[\"七班\",\"高一\",\"王志彤\"],\"0718\":[\"七班\",\"高一\",\"杨梦迪\"],\"0801\":[\"八班\",\"高一\",\"孙萍\"],\"0802\":[\"八班\",\"高一\",\"薛天琪\"],\"0803\":[\"八班\",\"高一\",\"张雨琪\"],\"0804\":[\"八班\",\"高一\",\"郝楚曦\"],\"0805\":[\"八班\",\"高一\",\"杨雨晨\"],\"0806\":[\"八班\",\"高一\",\"张习\"],\"0807\":[\"八班\",\"高一\",\"刘秀晴\"],\"0808\":[\"八班\",\"高一\",\"杨文茹\"],\"0809\":[\"八班\",\"高一\",\"刘文玉\"],\"0810\":[\"八班\",\"高一\",\"刘佳怡\"],\"0811\":[\"八班\",\"高一\",\"王雨潇\"],\"0901\":[\"九班\",\"高一\",\"王茗萱\"],\"0902\":[\"九班\",\"高一\",\"武彦颍\"],\"0903\":[\"九班\",\"高一\",\"齐月\"],\"0904\":[\"九班\",\"高一\",\"芮爽\"],\"0905\":[\"九班\",\"高一\",\"赵彤\"],\"0906\":[\"九班\",\"高一\",\"马艺杭\"],\"0907\":[\"九班\",\"高一\",\"李想\"],\"0908\":[\"九班\",\"高一\",\"王璐瑶\"],\"0909\":[\"九班\",\"高一\",\"孙杨\"],\"0910\":[\"九班\",\"高一\",\"任冠熹\"],\"0911\":[\"九班\",\"高一\",\"许阳\"],\"0912\":[\"九班\",\"高一\",\"李天晴\"],\"0913\":[\"九班\",\"高一\",\"齐伟然\"],\"0914\":[\"九班\",\"高一\",\"张楠\"]}";
+//                        try {
+//                            JSONObject info = new JSONObject(dataa);
+//                            Log.d("infoa", info.toString());
+//                            JSONArray array = info.getJSONArray(studentId);
+//                            Log.d("array", array.toString());
+//                            userName = array.get(2).toString();
+//                            userGrade = array.get(1).toString();
+//                            userClass = array.get(0).toString();
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
+//                        text = (LinearLayout) popView.findViewById(R.id.ll_text);
+//                        text.setVisibility(View.VISIBLE);
+//                        TextView nameText = (TextView) popView.findViewById(R.id.name);
+//                        TextView gradeText = (TextView) popView.findViewById(R.id.grade);
+//                        nameText.setText(userName);
+//                        gradeText.setText(userGrade + " · " + userClass);
+//                        mHandler.sendEmptyMessageDelayed(4, 3000);
+//                    }
 
                     break;
                 case 4:
 //
                     popupWindowHelper.dismiss();
+                    if (studentId.equals("5555")){
 
-                    flag = flag + 1;
-                    switch (flag % 2) {
-                        case 1:
-                            LinearLayout ll_11 = (LinearLayout) findViewById(R.id.ll__11);
-                            ll_11.setVisibility(View.VISIBLE);
-                            if (userName.equals("校外人员")) {
-                                img1.setImageDrawable(getResources().getDrawable(R.drawable.img_moshengrenbiaoji));
-                                name1.setText(userName);
-                                grade1.setText("请勿擅自进入");
-                                name1.setTextColor(Color.RED);
-                                grade1.setTextColor(Color.RED);
-                            } else {
-                                String sdDir2 = Environment.getExternalStorageDirectory().getPath();
-                                img1.setImageURI(Uri.fromFile(new File(sdDir2 + "/school/" + studentId + ".jpg")));
-                                name1.setText(userName);
-                                name1.setTextColor(Color.WHITE);
-                                grade1.setText(userGrade + " · " + userClass);
-                                grade1.setTextColor(Color.WHITE);
-
-                            }
-                            break;
-                        case 0:
-                            LinearLayout ll_12 = (LinearLayout) findViewById(R.id.ll__12);
-                            ll_12.setVisibility(View.VISIBLE);
-                            if (userName.equals("校外人员")) {
-                                img2.setImageDrawable(getResources().getDrawable(R.drawable.img_moshengrenbiaoji));
-                                name2.setText(userName);
-                                grade2.setText("请勿擅自进入");
-                                name2.setTextColor(Color.RED);
-                                grade2.setTextColor(Color.RED);
-                            } else {
-                                String sdDir2 = Environment.getExternalStorageDirectory().getPath();
-                                img2.setImageURI(Uri.fromFile(new File(sdDir2 + "/school/" + studentId + ".jpg")));
-                                name2.setText(userName);
-                                name2.setTextColor(Color.WHITE);
-                                grade2.setText(userGrade + " · " + userClass);
-                                grade2.setTextColor(Color.WHITE);
-
-                            }
-
-                            break;
-                    }
+                            LinearLayout ll11 = (LinearLayout) findViewById(R.id.ll__11);
+                            ll11.setVisibility(View.VISIBLE);
+//                            mHandler.sendEmptyMessageDelayed(12, 100);
+                            mHandler.sendEmptyMessageDelayed(20,2000);
+                        }else if (studentId.equals("7777")){
+                            LinearLayout ll22 = (LinearLayout) findViewById(R.id.ll__12);
+                            ll22.setVisibility(View.VISIBLE);
+//                            mHandler.sendEmptyMessageDelayed(12, 100);
+                        mHandler.sendEmptyMessageDelayed(21,2000);
+                        }else if (studentId.equals("9999")){
+                            LinearLayout ll33 = (LinearLayout) findViewById(R.id.ll__33);
+                            ll33.setVisibility(View.VISIBLE);
+//                            mHandler.sendEmptyMessageDelayed(12, 100);
+                        mHandler.sendEmptyMessageDelayed(22,2000);
+                        }else {
+                            LinearLayout ll44 = (LinearLayout) findViewById(R.id.ll__44);
+                            ll44.setVisibility(View.VISIBLE);
+//                            mHandler.sendEmptyMessageDelayed(12, 100);
+                        mHandler.sendEmptyMessageDelayed(23,2000);
+                        }
 //
-                    if (tag == 1) {
-                        mHandler.sendEmptyMessageDelayed(12, 3000);
-                    }
+//                    flag = flag + 1;
+//                    switch (flag % 2) {
+//                        case 1:
+//                            LinearLayout ll_11 = (LinearLayout) findViewById(R.id.ll__11);
+//                            ll_11.setVisibility(View.VISIBLE);
+//                            if (userName.equals("校外人员")) {
+//                                img1.setImageDrawable(getResources().getDrawable(R.drawable.img_moshengrenbiaoji));
+//                                name1.setText(userName);
+//                                grade1.setText("请勿擅自进入");
+//                                name1.setTextColor(Color.RED);
+//                                grade1.setTextColor(Color.RED);
+//                            } else {
+//                                String sdDir2 = Environment.getExternalStorageDirectory().getPath();
+//                                img1.setImageURI(Uri.fromFile(new File(sdDir2 + "/school/" + studentId + ".jpg")));
+//                                name1.setText(userName);
+//                                name1.setTextColor(Color.WHITE);
+//                                grade1.setText(userGrade + " · " + userClass);
+//                                grade1.setTextColor(Color.WHITE);
+//
+//                            }
+//                            break;
+//                        case 0:
+//                            LinearLayout ll_12 = (LinearLayout) findViewById(R.id.ll__12);
+//                            ll_12.setVisibility(View.VISIBLE);
+//                            if (userName.equals("校外人员")) {
+//                                img2.setImageDrawable(getResources().getDrawable(R.drawable.img_moshengrenbiaoji));
+//                                name2.setText(userName);
+//                                grade2.setText("请勿擅自进入");
+//                                name2.setTextColor(Color.RED);
+//                                grade2.setTextColor(Color.RED);
+//                            } else {
+//                                String sdDir2 = Environment.getExternalStorageDirectory().getPath();
+//                                img2.setImageURI(Uri.fromFile(new File(sdDir2 + "/school/" + studentId + ".jpg")));
+//                                name2.setText(userName);
+//                                name2.setTextColor(Color.WHITE);
+//                                grade2.setText(userGrade + " · " + userClass);
+//                                grade2.setTextColor(Color.WHITE);
+//
+//                            }
+//
+//                            break;
+//                    }
+////
+//                    if (tag == 1) {
+//                        mHandler.sendEmptyMessageDelayed(12, 3000);
+//                    }
                     break;
                 case 5:
                     popupWindowHelper.dismiss();
@@ -531,10 +731,22 @@ public class MainActivity extends AppCompatActivity implements NodePlayerDelegat
                     initBarChart2();
                     break;
                 case 12:
-                    LinearLayout ll_112 = (LinearLayout) findViewById(R.id.ll__12);
-                    ll_112.setVisibility(View.INVISIBLE);
-                    LinearLayout ll_111 = (LinearLayout) findViewById(R.id.ll__11);
-                    ll_111.setVisibility(View.INVISIBLE);
+//                    LinearLayout ll_112 = (LinearLayout) findViewById(R.id.ll__12);
+//                    ll_112.setVisibility(View.INVISIBLE);
+//                    LinearLayout ll_111 = (LinearLayout) findViewById(R.id.ll__11);
+//                    ll_111.setVisibility(View.INVISIBLE);
+                    if(studentId.equals("5555")){
+                        mHandler.sendEmptyMessageDelayed(20,2000);
+                    }else if (studentId.equals("7777")){
+                        mHandler.sendEmptyMessageDelayed(21,2000);
+                    }else if (studentId.equals("9999")){
+                        mHandler.sendEmptyMessageDelayed(22,2000);
+                    }else {
+                        mHandler.sendEmptyMessageDelayed(23,2000);
+                    }
+
+                    break;
+                case 13:
                     initId();
                     break;
                 default:
